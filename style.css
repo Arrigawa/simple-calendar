@@ -1,0 +1,155 @@
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    border: 1px solid #e2e8f0;
+}
+
+.calendar-day {
+    min-height: 120px;
+    background-color: white;
+    border: 1px solid #f0f0f0;
+    padding: 8px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.calendar-day-header {
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+    color: #4a5568;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.calendar-day:hover {
+    background-color: #f9fafb;
+    transform: scale(1.02);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-day.other-month:hover {
+    background-color: #5083c5 !important;
+    opacity: 0.8;
+}
+
+.day-number {
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.current-day .day-number {
+    width: 25px;
+    height: 25px;
+    background-color: #f38383;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.events {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.event {
+    padding: 2px 6px;
+    border-radius: 3px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    border-left-width: 3px;
+    max-width: 100%;
+    box-sizing: border-box;
+    word-break: break-word;
+    user-select: none; /* Prevent text selection during drag */
+}
+
+.event:hover {
+    filter: brightness(0.95);
+}
+
+.event.dragging {
+    opacity: 0.7;
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.current-day {
+    background-color: #a0c5fc;
+}
+
+.other-month {
+    opacity: 0.5;
+    background-color: #f9fafb;
+}
+
+.calendar-day.drag-over {
+    background-color: #e6f3ff;
+    border: 2px dashed #3b82f6;
+}
+
+.modal {
+    transition: all 0.3s ease;
+}
+
+.modal-content {
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+}
+
+.today-highlight {
+    background-color: #4a8cf0 !important;  /* Warna biru Tailwind */
+    color: white !important;
+    font-weight: bold;
+    border-radius: 9999px;  /* Bentuk bulat */
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: 4px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.today-highlight {
+    animation: pulse 2s infinite;
+}
+
+/* Ensure today's cell is highlighted */
+.calendar-day[data-today="true"] {
+    background-color: #ebf5ff;
+}
+
+.column-hover {
+    background-color: #f0f7ff imo !important;
+}
+
+@import "tailwindcss";
