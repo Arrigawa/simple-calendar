@@ -81,6 +81,117 @@
     filter: brightness(0.95);
 }
 
+/* Multi-day event selection styles */
+.calendar-day.selection-start {
+    background-color: rgba(79, 70, 229, 0.1);
+    border-left: 3px solid #4f46e5;
+}
+
+.calendar-day.in-selection {
+    background-color: rgba(79, 70, 229, 0.1);
+}
+
+.calendar-day.selection-end {
+    background-color: rgba(79, 70, 229, 0.1);
+    border-right: 3px solid #4f46e5;
+}
+
+.multi-day-event {
+    position: relative;
+    padding: 6px 8px;
+    margin: 4px -8px;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 12px;
+    color: white;
+    background-color: #4e46e5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    z-index: 10;
+    font-weight: 500;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.multi-day-event.bg-blue-100 {
+    background-color: #3b82f6 !important;
+    color: white;
+}
+
+.multi-day-event.bg-red-100 {
+    background-color: #ef4444 !important;
+    color: white;
+}
+
+.multi-day-event.bg-green-100 {
+    background-color: #10b981 !important;
+    color: white;
+}
+
+.multi-day-event.bg-yellow-100 {
+    background-color: #f59e0b !important;
+    color: white;
+}
+
+.multi-day-event.bg-purple-100 {
+    background-color: #8b5cf6 !important;
+    color: white;
+}
+
+.multi-day-event.bg-indigo-100 {
+    background-color: #6366f1 !important;
+    color: white;
+}
+
+.multi-day-event.start {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding-left: 8px;
+    font-weight: 500;
+}
+
+.multi-day-event.middle {
+    border-radius: 0;
+    padding-left: 8px;
+    padding-right: 8px;
+    opacity: 0.95;
+}
+
+.multi-day-event.end {
+    margin-right: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding-right: 8px;
+}
+
+/* Enhance multi-day events */
+.multi-day-event::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+    pointer-events: none;
+}
+
+/* Add more spacing for multi-day events */
+.calendar-day .events .multi-day-event {
+    margin-bottom: 6px;
+}
+
+/* Hover effect for multi-day events */
+.multi-day-event:hover {
+    filter: brightness(1.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.calendar-day.hover-over {
+    background-color: rgba(79, 70, 229, 0.05);
+}
+
 .event.dragging {
     opacity: 0.7;
     transform: scale(0.95);
@@ -150,6 +261,16 @@
 
 .column-hover {
     background-color: #f0f7ff imo !important;
+}
+
+/* Calendar mode styles */
+.calendar-mode-multi .calendar-day {
+    cursor: cell;
+}
+
+.calendar-day.being-selected {
+    background-color: rgba(79, 70, 229, 0.2);
+    border: 1px dashed #4f46e5;
 }
 
 @import "tailwindcss";
